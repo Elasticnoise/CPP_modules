@@ -1,25 +1,31 @@
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-#ifndef CPP_MODULES_CONTACT_HPP
-# define CPP_MODULES_CONTACT_HPP
-
-#include <iostream>
+# include <iostream>
 
 class Contact
 {
+public:
+
+	int     index;
+
+	Contact();
+	~Contact();
+
+	void    newContact(int cid);
+	void    displayContact();
+	void    displayDetailed();
+
+private:
+
 	std::string firstName;
 	std::string lastName;
 	std::string nickName;
 	std::string phoneNumber;
 	std::string darkestSecret;
 
-public:
-	Contact();
-	~Contact();
-	void SetFirstName(char *first_name);
-	void SetLastName(char *last_name);
-	void SetNickName(char *nickname);
-	void SetPhoneNumber(char *phone_number);
-	void SetDarkestSecret(char *darkest_secret);
+	void    alignAndTruncat(std::string text) const;
+
 };
 
 #endif

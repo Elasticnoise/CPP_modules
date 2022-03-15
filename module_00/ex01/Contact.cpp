@@ -1,22 +1,55 @@
 #include "Contact.hpp"
+#include <iomanip>
 
-void SetFirstName(char *first_name)
+Contact::Contact() : index(0) {}
+
+Contact::~Contact() {}
+
+
+void    Contact::newContact(int cid)
 {
-	this->first_name = first_name;
+	std::cout << std::endl << "\033[34mInput the information of the new contact\033[0m" << std::endl;
+	index = cid;
+	std::cout << "First name: ";
+	std::cin >> this->firstName;
+	std::cout << "Last name: ";
+	std::cin >> this->lastName;
+	std::cout << "Nickname: ";
+	std::cin >> this->nickName;
+	std::cout << "Phone number: ";
+	std::cin >> this->phoneNumber;
+	std::cout << "Darkest secret: ";
+	std::cin >> this->darkestSecret;
+	std::cout << std::endl;
 }
-void SetLastName(char *last_name)
+
+void    Contact::alignAndTruncat(std::string text) const
 {
-	this->last_name = last_name;
+	if (text.length() > 10)
+		std::cout << text.substr(0, 9) << ".";
+	else
+		std::cout << std::setw(10) << text;
 }
-void SetNickName(char *nickname)
+
+void    Contact::displayContact()
 {
-	this->nickname = nickname;
+	this->alignAndTruncat(std::to_string(index));
+	std::cout << "|";
+	this->alignAndTruncat(this->firstName);
+	std::cout << "|";
+	this->alignAndTruncat(this->lastName);
+	std::cout << "|";
+	this->alignAndTruncat(this->nickName);
+	std::cout << std::endl;
 }
-void SetPhoneNumber(char *phone_number)
+
+void    Contact::displayDetailed()
 {
-	this->phone_number = phone_number;
-}
-void SetDarkestSecret(char *darkest_secret)
-{
-	this->darkest_secret = darkest_secret;
+	std::cout << std::endl << "\033[30;46m All details of the contact with index " << index << " \033[0m" << std::endl;
+	std::cout << "First name: " << firstName << std::endl;
+	std::cout << "Last name: " << lastName << std::endl;
+	std::cout << "Nickname: " << nickName << std::endl;
+	std::cout << "Phone number: " << phoneNumber << std::endl;
+	std::cout << "Darkest secret: " << darkestSecret << std::endl;
+	std::cout << std::endl;
 }

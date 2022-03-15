@@ -3,11 +3,12 @@
 
 int main()
 {
-	PhoneBook contacts;
-	bool exit = false;
+	PhoneBook   contacts;
 	std::string command;
+	bool exit = false;
 
-	std::cout <<std::endl << "\033[4;36mThe program accepts ADD, SEARCH and EXIT commands.\033[0m" << std::endl << std::endl;
+	std::cout << "Hi!" << std::endl;
+	std::cout << std::endl << "\033[4;36mThe program accepts ADD, SEARCH and EXIT commands.\033[0m" << std::endl << std::endl;
 	while (!exit)
 	{
 		std::cout << "\033[32mInput command: ";
@@ -22,5 +23,4 @@ int main()
 		else
 			std::cout << "Invalid input, please try again!" << std::endl;
 	}
-	return (0);
 }
