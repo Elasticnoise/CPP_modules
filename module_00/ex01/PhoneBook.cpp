@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/18 21:05:03 by lechalme          #+#    #+#             */
+/*   Updated: 2022/03/18 21:05:04 by lechalme         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 #include <iomanip>
 
@@ -40,7 +52,7 @@ void    PhoneBook::displayContactsList()
 	i = 0;
 	while (i < 8 && i < (cid - 1) && std::to_string(book[i].index) != cidInput)
 		i++;
-	if (std::to_string(book[i].index) == cidInput)
+	if (std::to_string(book[i].index) == cidInput && cidInput != "0")
 		book[i].displayDetailed();
 	else
 		std::cout << std::endl << "\033[30;41m Wrong index \033[0m" << std::endl << std::endl;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/18 21:05:23 by lechalme          #+#    #+#             */
+/*   Updated: 2022/03/18 21:05:24 by lechalme         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "PhoneBook.hpp"
 
@@ -13,6 +25,8 @@ int main()
 	{
 		std::cout << "\033[32mInput command: ";
 		std::cin >> command;
+		if (std::cin.eof())
+			break;
 		std::cout << "\033[0m";
 		if (command == "EXIT")
 			exit = true;

@@ -1,6 +1,6 @@
-NAME		= 	GlobalBanksters
-SRCS 		= 	Account.cpp \
-				tests.cpp
+NAME		= 	Zombie
+SRCS 		= 	Zombie.cpp \
+				main.cpp
 OBJS		=	$(patsubst %.cpp, %.o,$(SRCS))
 
 CC			= 	g++
@@ -14,10 +14,6 @@ $(NAME) 	: 	$(OBJS)
 
 %.o 		: 	%.cpp
 				$(CC) $(FLAGS) -c $< -o $@
-
-Account.o 	: 	Account.cpp Account.hpp
-test.o		: 	test.cpp Account.o
-
 
 clean 		:
 				@rm -f $(OBJS)
