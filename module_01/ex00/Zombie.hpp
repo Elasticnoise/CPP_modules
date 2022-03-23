@@ -20,19 +20,11 @@ class	Zombie
 private:
 	std::string name;
 public:
-	Zombie (std::string name)
-	{
-		this->name = name;
-	};
-	Zombie () {};
-	~Zombie() {
-		std::cout << name << ": was deleted" << std::endl;
-	};
+	Zombie (std::string name);
+	Zombie ();
+	~Zombie();
 
-	void	setName(std::string name)
-	{
-		this->name = name;
-	}
+	void	setName(std::string name);
 	void	announce();
 };
 	void randomChump(std::string name);

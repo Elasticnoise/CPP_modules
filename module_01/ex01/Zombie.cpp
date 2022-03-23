@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 22:26:54 by lechalme          #+#    #+#             */
-/*   Updated: 2022/03/18 22:26:56 by lechalme         ###   ########.fr       */
+/*   Created: 2022/03/18 21:53:50 by lechalme          #+#    #+#             */
+/*   Updated: 2022/03/23 18:05:57 by lechalme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Zombie.hpp"
-#include <iostream>
 
-Zombie* newZombie(std::string name)
+# include <iostream>
+# include "Zombie.hpp"
+
+Zombie::Zombie () : name("Default") {};
+
+Zombie::Zombie (std::string name)
 {
-	Zombie* newBorn = new Zombie(name);
-	return (newBorn);
+	this->name = name;
+};
+Zombie::~Zombie() {
+	std::cout << this->name << ": was deleted" << std::endl;
+};
+
+void	Zombie::announce()
+{
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string name)
+{
+	this->name = name;
 }
