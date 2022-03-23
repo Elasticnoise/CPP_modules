@@ -1,5 +1,7 @@
 NAME		= 	Zombie
 SRCS 		= 	Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp \
 				main.cpp
 OBJS		=	$(patsubst %.cpp, %.o,$(SRCS))
 

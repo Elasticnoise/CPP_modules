@@ -14,6 +14,9 @@
 #include "Zombie.hpp"
 int	main()
 {
-	newZombie("Toxana");
+	Zombie *zombie = newZombie("NewZ");
+	zombie->announce();
+	randomChump("RandZ");
+	delete zombie;
 	return (1);
 }

@@ -9,8 +9,8 @@
 /*   Updated: 2022/03/18 22:26:56 by lechalme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-# include <iostream>
 #include "Zombie.hpp"
+# include <iostream>
 
 Zombie* newZombie(std::string name)
 {

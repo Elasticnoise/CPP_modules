@@ -14,12 +14,27 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
+
 class	Zombie
 {
 private:
 	std::string name;
 public:
-	Zombie::Zombie();
+	Zombie (std::string name)
+	{
+		this->name = name;
+	};
+	Zombie () {};
+	~Zombie() {
+		std::cout << name << ": was deleted" << std::endl;
+	};
+
+	void	setName(std::string name)
+	{
+		this->name = name;
+	}
 	void	announce();
 };
+	void randomChump(std::string name);
+	Zombie* newZombie(std::string name);
 #endif
