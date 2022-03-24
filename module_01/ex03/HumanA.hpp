@@ -6,12 +6,11 @@ class HumanA
 {
 private:
 	std::string name;
-	Weapon weapon;
+	Weapon& weapon;
 public:
-	void attack();
-	HumanA(std::string name, Weapon type);
-	HumanA();
 	~HumanA();
+	void attack() const;
+	HumanA(std::string name, Weapon &weapon);
 };
 
 #endif
