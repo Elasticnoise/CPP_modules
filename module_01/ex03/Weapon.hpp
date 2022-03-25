@@ -8,11 +8,9 @@ class Weapon
 private:
 	std::string type;
 public:
-	explicit Weapon(std::string  const &type);
+	Weapon(std::string  const &type);
 	~Weapon();
-	std::string const & getType() const;
+	const std::string & getType() const;
 	void	setType(std::string const &type);
-	Weapon&operator=(Weapon const &other);
-	Weapon(Weapon const &other);
 };
 #endif
