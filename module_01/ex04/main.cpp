@@ -22,20 +22,27 @@ int	main(int argc, char** argv)
 
 	if (argc == 4)
 	{
-		str1 = argv[2];
-		str2 = argv[3];
-		std::ofstream ofs("file.replace");
-		while (getline(ifs, s))
+		if (ifs.is_open())
 		{
-			std::cout << s << std::endl;
-			if (s == str1)
-				ofs << str2 << std::endl;
-			else if (s == str2)
-				ofs << str1 << std::endl;
-			else
-				ofs << s << std::endl;
+			str1 = argv[2];
+			str2 = argv[3];
+			std::ofstream ofs("file.replace");
+			while (ifs >> s)
+			{
+				std::cout << s << std::endl;
+				if (s == str1)
+					ofs << str2 << " ";
+				else if (s == str2)
+					ofs << str1 << " ";
+				else if (s == "\n")
+					ofs << std::endl;
+				else
+					ofs << s << " ";
+			}
+			std::cout << str1 << " " << std::endl;
 		}
-		std::cout << str1 << " " << std::endl;
+		else
+			std::cout << "File do not open." << std::endl;
 		ifs.close();
 
 	}
