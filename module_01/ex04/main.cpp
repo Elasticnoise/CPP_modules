@@ -17,22 +17,27 @@ int	main(int argc, char** argv)
 {
 	std::ifstream 	ifs(argv[1]);
 	std::string		s;
-//	unsigned int	dst1;
-//	unsigned int	dst2;
 	std::string		str1;
 	std::string 	str2;
-	ifs >> str1 >> str2;
 
 	if (argc == 4)
 	{
+		str1 = argv[2];
+		str2 = argv[3];
+		std::ofstream ofs("file.replace");
 		while (getline(ifs, s))
 		{
 			std::cout << s << std::endl;
+			if (s == str1)
+				ofs << str2 << std::endl;
+			else if (s == str2)
+				ofs << str1 << std::endl;
+			else
+				ofs << s << std::endl;
 		}
-		std::cout << str1 << " " << str2 << std::endl;
+		std::cout << str1 << " " << std::endl;
 		ifs.close();
-//		str1 = argv[1];
-//		str2 = argv[2];
+
 	}
 	else
 	{
