@@ -19,6 +19,9 @@ int	main(int argc, char** argv)
 	std::string		s;
 	std::string		str1;
 	std::string 	str2;
+	std::size_t		found;
+	std::string 	tmp;
+	std::string 	res;
 
 	if (argc == 4)
 	{
@@ -27,19 +30,20 @@ int	main(int argc, char** argv)
 			str1 = argv[2];
 			str2 = argv[3];
 			std::ofstream ofs("file.replace");
-			while (ifs >> s)
+			while (getline(ifs, s))
 			{
-				std::cout << s << std::endl;
-				if (s == str1)
-					ofs << str2 << " ";
-				else if (s == str2)
-					ofs << str1 << " ";
-				else if (s == "\n")
-					ofs << std::endl;
-				else
-					ofs << s << " ";
+				res += s + '\n';
+				found = s.find(str1);
 			}
-			std::cout << str1 << " " << std::endl;
+			size_t pos = 0;
+			while ((pos = res.find(argv[2])) != std::string::npos)
+			{
+				tmp = res;
+				res = res.substr(0, pos);
+				res += str2;
+				res += tmp.substr(pos + str1.length(), tmp.length());
+			}
+			std::cout << res;
 		}
 		else
 			std::cout << "File do not open." << std::endl;
