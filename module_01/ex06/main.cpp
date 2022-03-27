@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/27 22:00:02 by lechalme          #+#    #+#             */
-/*   Updated: 2022/03/27 22:00:03 by lechalme         ###   ########.fr       */
+/*   Created: 2022/03/27 22:06:18 by lechalme          #+#    #+#             */
+/*   Updated: 2022/03/27 22:06:21 by lechalme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef HARL_HPP
-#define HARL_HPP
-#include <iostream>
+#include "Harl.hpp"
 
-class	Harl
+int	main(int argc, char **argv)
 {
-private:
-	void debug();
-	void info();
-	void warning();
-	void error();
-public:
-	Harl();
-	~Harl();
-	void	complain(std::string level);
-};
+	Harl	har;
 
-#endif
+	if (argc == 2)
+		har.complain(argv[1]);
+	else
+		std::cout << "Error: arguments" << std::endl;
+	return (0);
+}
