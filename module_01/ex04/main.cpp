@@ -22,14 +22,16 @@ int	main(int argc, char** argv)
 	std::size_t		found;
 	std::string 	tmp;
 	std::string 	res;
+	std::string 	file_name;
 
 	if (argc == 4)
 	{
-		if (ifs.is_open())
+		if (ifs.is_open() && ifs.good())
 		{
 			str1 = argv[2];
 			str2 = argv[3];
-			std::ofstream ofs("file.replace");
+			file_name = argv[1];
+			std::ofstream ofs(file_name + ".replace");
 			while (getline(ifs, s))
 			{
 				res += s + '\n';
@@ -43,10 +45,11 @@ int	main(int argc, char** argv)
 				res += str2;
 				res += tmp.substr(pos + str1.length(), tmp.length());
 			}
-			std::cout << res;
+			ofs << res;
+			ofs.close();
 		}
 		else
-			std::cout << "File do not open." << std::endl;
+			std::cout << "File doesn't open." << std::endl;
 		ifs.close();
 
 	}
