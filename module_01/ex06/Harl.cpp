@@ -67,13 +67,10 @@ void Harl::complain(std::string level)
 	{
 		case 0:
 			(this->*mod_level[0])();
-			break;
 		case 1:
 			(this->*mod_level[1])();
-			break;
 		case 2:
 			(this->*mod_level[2])();
-			break;
 		case 3:
 			(this->*mod_level[3])();
 			break;
