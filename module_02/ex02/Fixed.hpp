@@ -31,9 +31,18 @@ public:
 	float	toFloat() const;
 	int toInt() const;
 	Fixed & operator =(const Fixed &other);
+	bool operator >(const Fixed & other);
+	bool operator <(const Fixed & other);
+	bool operator >=(const Fixed & other);
+	bool operator <=(const Fixed & other);
+	bool operator ==(const Fixed & other);
+	bool operator !=(const Fixed & other);
+	Fixed operator +(const Fixed & other);
+	Fixed operator -(const Fixed & other);
+	Fixed operator *(const Fixed & other);
+	Fixed operator /(const Fixed & other);
 };
 
 std::ostream & operator <<(std::ostream &o, Fixed const & other);
 
 #endif
-
