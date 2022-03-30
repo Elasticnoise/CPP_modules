@@ -14,20 +14,26 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <math.h>
 class Fixed
 {
 private:
 	int fixed_point_num;
-	static const int fractional_bits_num;
+	static const int fractional_bits_num = 8;
 public:
 	Fixed();
 	Fixed (const Fixed &obj);
 	Fixed (const int num);
+	Fixed (const float fl_p_num);
 	~Fixed();
 	int	getRawBits() const;
-	void setRawBits(int const raw);
+	void	setRawBits(int const raw);
+	float	toFloat() const;
+	int toInt() const;
 	Fixed & operator =(const Fixed &other);
 };
+
+std::ostream & operator <<(std::ostream &o, Fixed const & other);
 
 #endif
 
