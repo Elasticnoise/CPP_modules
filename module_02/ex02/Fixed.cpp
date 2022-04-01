@@ -14,55 +14,55 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 	this->fixed_point_num = 0;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	this->fixed_point_num = other.fixed_point_num;
 }
 
 Fixed &Fixed::operator =(const Fixed &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	this->fixed_point_num = other.fixed_point_num;
 	return (*this);
 }
 
 /* Comparison operators */
-bool Fixed::operator==(const Fixed & other)
+bool Fixed::operator==(const Fixed & other) const
 {
 	return (this->fixed_point_num == other.fixed_point_num);
 }
 
-bool Fixed::operator !=(const Fixed & other)
+bool Fixed::operator !=(const Fixed & other) const
 {
 	return (this->fixed_point_num != other.fixed_point_num);
 }
 
-bool Fixed::operator >(const Fixed & other)
+bool Fixed::operator >(const Fixed & other) const
 {
 	return (this->fixed_point_num > other.fixed_point_num);
 }
 
-bool Fixed::operator <(const Fixed & other)
+bool Fixed::operator <(const Fixed & other) const
 {
 	return (this->fixed_point_num < other.fixed_point_num);
 }
 
-bool Fixed::operator >=(const Fixed & other)
+bool Fixed::operator >=(const Fixed & other) const
 {
 	return (this->fixed_point_num >= other.fixed_point_num);
 }
 
-bool Fixed::operator <=(const Fixed & other)
+bool Fixed::operator <=(const Fixed & other) const
 {
 	return (this->fixed_point_num <= other.fixed_point_num);
 }
@@ -100,18 +100,46 @@ Fixed	Fixed::operator /(const Fixed &other)
 	return (temp);
 }
 
+Fixed & Fixed::operator ++()
+{
+	this->fixed_point_num++;
+	return (*this);
+}
+
+Fixed	Fixed::operator ++(int)
+{
+	Fixed temp(*this);
+	this->fixed_point_num++;
+
+	return (temp);
+}
+
+Fixed & Fixed::operator --()
+{
+	this->fixed_point_num--;
+	return (*this);
+}
+
+Fixed	Fixed::operator --(int)
+{
+	Fixed temp(*this);
+	this->fixed_point_num--;
+
+	return (temp);
+}
+
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
-	fixed_point_num = num << Fixed::fractional_bits_num;
-	std::cout << "intARG= " << fixed_point_num << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
+	fixed_point_num = num;
+//	std::cout << "intARG= " << fixed_point_num << std::endl;
 }
 
 Fixed::Fixed(const float fl_p_num)
 {
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 	fixed_point_num = roundf(fl_p_num * ( 1 << Fixed::fractional_bits_num));
-	std::cout << "floatARG= " << fixed_point_num << std::endl;
+//	std::cout << "floatARG= " << fixed_point_num << std::endl;
 }
 
 float Fixed::toFloat() const
@@ -133,6 +161,26 @@ int 	Fixed::getRawBits() const
 void Fixed::setRawBits(const int raw)
 {
 	this->fixed_point_num = raw;
+}
+
+Fixed & Fixed::min(Fixed &a, Fixed &b)
+{
+	return (a < b ? a : b);
+}
+
+const Fixed  & Fixed::min(const Fixed &a, const Fixed &b)
+{
+	return (a < b ? a : b);
+}
+
+Fixed & Fixed::max(Fixed &a, Fixed &b)
+{
+	return (a > b ? a : b);
+}
+
+const Fixed & Fixed::max(const Fixed &a, const Fixed &b)
+{
+	return (a > b ? a : b);
 }
 
 std::ostream  & operator <<(std::ostream & o, Fixed const & other)
