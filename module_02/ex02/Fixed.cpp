@@ -88,7 +88,7 @@ Fixed	Fixed::operator *(const Fixed &other)
 {
 	Fixed	temp;
 
-	temp.fixed_point_num = this->fixed_point_num * other.fixed_point_num;
+	temp.fixed_point_num = (this->fixed_point_num * other.fixed_point_num) / (1 << fractional_bits_num);
 	return (temp);
 }
 
@@ -96,7 +96,7 @@ Fixed	Fixed::operator /(const Fixed &other)
 {
 	Fixed	temp;
 
-	temp.fixed_point_num = this->fixed_point_num * other.fixed_point_num;
+	temp.fixed_point_num = (this->fixed_point_num / other.fixed_point_num) * (1 << fractional_bits_num);
 	return (temp);
 }
 
@@ -120,25 +120,31 @@ Fixed & Fixed::operator --()
 	return (*this);
 }
 
-Fixed	Fixed::operator --(int)
+Fixed Fixed::operator--(int)
 {
-	Fixed temp(*this);
-	this->fixed_point_num--;
-
-	return (temp);
+	Fixed tmp(*this);
+	--*this;
+	return (tmp);
 }
+//Fixed	Fixed::operator --(int)
+//{
+//	Fixed temp(*this);
+//	this->fixed_point_num--;
+//
+//	return (temp);
+//}
 
 Fixed::Fixed(const int num)
 {
 //	std::cout << "Int constructor called" << std::endl;
-	fixed_point_num = num;
+	fixed_point_num = num << fractional_bits_num;
 //	std::cout << "intARG= " << fixed_point_num << std::endl;
 }
 
 Fixed::Fixed(const float fl_p_num)
 {
 //	std::cout << "Float constructor called" << std::endl;
-	fixed_point_num = roundf(fl_p_num * ( 1 << Fixed::fractional_bits_num));
+	fixed_point_num = roundf(fl_p_num * (1 << Fixed::fractional_bits_num));
 //	std::cout << "floatARG= " << fixed_point_num << std::endl;
 }
 
@@ -154,7 +160,7 @@ int Fixed::toInt() const
 
 int 	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called " << std::endl;
+//	std::cout << "getRawBits member function called " << std::endl;
 	return (this->fixed_point_num);
 }
 
