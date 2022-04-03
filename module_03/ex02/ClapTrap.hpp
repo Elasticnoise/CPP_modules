@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 17:04:00 by lechalme          #+#    #+#             */
-/*   Updated: 2022/04/03 17:04:02 by lechalme         ###   ########.fr       */
+/*   Created: 2022/04/03 17:01:13 by lechalme          #+#    #+#             */
+/*   Updated: 2022/04/03 17:01:15 by lechalme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class ScavTrap : public ClapTrap
+class ClapTrap
 {
-private:
-	ScavTrap();
-public:
-	ScavTrap(std::string _name);
-	ScavTrap(const ScavTrap &other);
-	ScavTrap & operator =(const ScavTrap &other);
-	~ScavTrap();
+protected:
+	ClapTrap();
+	std::string		_name;
+	unsigned int	_hit_points;
+	unsigned int	_energy;
+	unsigned int	_damage;
 
-	void guardGate();
+public:
+	ClapTrap(std::string _name);
+	ClapTrap(const ClapTrap &other);
+	ClapTrap & operator =(const ClapTrap &other);
+	~ClapTrap();
 	void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+	const std::string	&getName() const;
+	unsigned int	getHitPoints() const;
+	unsigned int	getEnergy() const;
+	unsigned int	getDamage() const;
 };
 
 std::ostream & operator <<(std::ostream &o, ClapTrap const & other);

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 17:01:24 by lechalme          #+#    #+#             */
-/*   Updated: 2022/04/03 17:01:26 by lechalme         ###   ########.fr       */
+/*   Created: 2022/04/03 22:52:32 by lechalme          #+#    #+#             */
+/*   Updated: 2022/04/03 22:52:34 by lechalme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+
 #include "ScavTrap.hpp"
 
-
-int main()
+class FragTrap: public ClapTrap
 {
-//	ClapTrap Human("Human");
-//	Human.attack("Enemy");
-	ScavTrap Robot("Robot");
-//	Robot.attack("bob");
-//	Robot.guardGate();
-//	Robot.takeDamage(10);
-//	Robot.beRepaired(3);
-	return (0);
-}
+private:
+	FragTrap();
+public:
+	FragTrap(std::string name);
+	FragTrap(const FragTrap & other);
+	FragTrap & operator =(const FragTrap &other);
+	~FragTrap();
+
+	void highFivesGuys();
+};
+
+#endif
