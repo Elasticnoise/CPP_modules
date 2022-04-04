@@ -15,9 +15,10 @@ ScavTrap::ScavTrap()
 {
 	std::cout <<"[ScavTrap]"<< "Default constructor called" << std::endl;
 	this->_name = "Default";
-	this->_hit_points = 10;
-	this->_energy = 10;
-	this->_damage = 0;
+	this->_hit_points = 100;
+	this->_energy = 50;
+	this->_sc_trap_energy = 50;
+	this->_damage = 20;
 }
 ScavTrap::ScavTrap(std::string name)
 {

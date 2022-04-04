@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamoundTrap.hpp                                   :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 23:23:22 by lechalme          #+#    #+#             */
-/*   Updated: 2022/04/03 23:23:24 by lechalme         ###   ########.fr       */
+/*   Updated: 2022/04/04 22:08:22 by lechalme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMOUNDTRAP_HPP
-#define DIAMOUNDTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class DiamoundTrap
+class DiamondTrap: public FragTrap, public ScavTrap
 {
 private:
 	std::string _name;
-	DiamoundTrap();
+	DiamondTrap();
 public:
-	DiamoundTrap(std::string name);
-	DiamoundTrap(const DiamoundTrap & other);
-	DiamoundTrap & operator =(const DiamoundTrap &other);
-	~DiamoundTrap();
+	DiamondTrap(std::string name);
+	DiamondTrap(const DiamondTrap & other);
+	DiamondTrap & operator =(const DiamondTrap &other);
+	~DiamondTrap();
+
+	void	whoAmI();
+	void attack(const std::string& target);
+	const std::string	&getName() const;
+//	unsigned int	getDamage() const;
 };
+
+//std::ostream & operator <<(std::ostream &o, DiamondTrap const & other);
 #endif

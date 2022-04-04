@@ -1,17 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 17:01:24 by lechalme          #+#    #+#             */
-/*   Updated: 2022/04/03 17:01:26 by lechalme         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -22,7 +12,22 @@ int main()
 //	Robot.guardGate();
 //	Robot.takeDamage(10);
 //	Robot.beRepaired(3);
-	FragTrap Bot("Bot");
-	Bot.highFivesGuys();
+//	FragTrap Bot("Bot");
+//	Bot.highFivesGuys();
+//	DiamondTrap *bob = new DiamondTrap("Lol");
+	DiamondTrap diamond("Diamond");
+	std::cout << "----------------------------------------" << std::endl;
+	std::cout << diamond << std::endl;
+	diamond.attack("poo");
+	diamond.whoAmI();
+//	std::cout << "DiamondTrap _name: " << diamond.getName() << std::endl;
+////	std::cout << "ClapTrap _name: " <<  diamond.get<< std::endl;
+//	std::cout << "DiamondTrap _hit_points: " << diamond.getHitPoints() << std::endl;
+//	std::cout << "DiamondTrap _energy: " << diamond.getEnergy() << std::endl;
+//	std::cout << "DiamondTrap _damage: " << diamond._damage << std::endl;
+	std::cout << "----------------------------------------" << std::endl;
+//	std::cout << diamond.getDamage() << std::endl;
+//	FragTrap frag("Frag");
+//	bob.attack("Kek");
 	return (0);
 }

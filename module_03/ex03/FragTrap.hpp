@@ -15,9 +15,11 @@
 
 #include "ScavTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
-private:
+protected:
+	unsigned int _f_trap_hit_points;
+	unsigned int _f_trap_damage;
 	FragTrap();
 public:
 	FragTrap(std::string name);

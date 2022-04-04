@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(std::string name)
 	this->_name = name;
 	this->_hit_points = 10;
 	this->_energy = 10;
-	this->_damage = 2;
+	this->_damage = 0;
 }
 ClapTrap::ClapTrap(const ClapTrap &other)
 {

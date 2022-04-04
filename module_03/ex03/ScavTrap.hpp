@@ -15,10 +15,11 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
-private:
+protected:
 	ScavTrap();
+	unsigned int _sc_trap_energy;
 public:
 	ScavTrap(std::string _name);
 	ScavTrap(const ScavTrap &other);
