@@ -23,10 +23,10 @@ public:
 	WrongAnimal();
 	WrongAnimal(const WrongAnimal &other);
 	WrongAnimal & operator =(const WrongAnimal &other);
-	~WrongAnimal();
+	virtual ~WrongAnimal();
 
-//	virtual void	makeSound() const;
-//	virtual std::string getType() const;
+	virtual void	makeSound() const;
+	virtual std::string getType() const;
 };
 
 #endif

@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -23,14 +25,30 @@ int main()
 //	std::cout << "Cat's type: "<< cat.getType() << std::endl;
 //	dog.makeSound();
 //	cat.makeSound();
-
+	std::cout << "--------------------------" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	const WrongAnimal wrAn;
+	const WrongCat	wrCat;
+	const WrongAnimal* fake = new WrongAnimal();
+	const WrongAnimal* fakeCat = new WrongCat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+	std::cout << "--------------------------" << std::endl;
+	wrAn.makeSound();
+	wrCat.makeSound();
+	fake->makeSound();
+	fakeCat->makeSound();
+
+	delete	meta;
+	delete 	j;
+	delete 	i;
+	delete	fake;
+	delete	fakeCat;
+
 	return 0;
 }

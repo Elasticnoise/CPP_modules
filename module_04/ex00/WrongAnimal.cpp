@@ -12,4 +12,34 @@
 
 #include "WrongAnimal.hpp"
 
+WrongAnimal::WrongAnimal()
+{
+	std::cout <<"[WrongAnimal]"<< "Default constructor called" << std::endl;
+}
 
+WrongAnimal::WrongAnimal(const WrongAnimal &other)
+{
+	*this = other;
+}
+
+WrongAnimal	&WrongAnimal::operator =(const WrongAnimal &other)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->type = other.type;
+	return (*this);
+}
+
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "[WrongAnimal]" << ": Destructor called" << std::endl;
+}
+
+void WrongAnimal::makeSound() const
+{
+	std::cout << "Wronganimal sound!" << std::endl;
+}
+
+std::string WrongAnimal::getType() const
+{
+	return (this->type);
+}

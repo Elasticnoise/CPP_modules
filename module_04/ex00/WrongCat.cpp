@@ -34,3 +34,8 @@ WrongCat::~WrongCat()
 {
 	std::cout << "[WrongCat]" << ": Destructor called" << std::endl;
 }
+
+void WrongCat::makeSound() const
+{
+	std::cout << "Bark meow Bark meow" << std::endl;
+}
