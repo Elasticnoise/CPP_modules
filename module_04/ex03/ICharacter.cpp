@@ -14,38 +14,57 @@
 
 Character::Character()
 {
-//	std::cout <<"[Character]"<< "Default constructor called" << std::endl;
+	this->name = "";
+	std::cout <<"[Character]"<< "Default constructor called" << std::endl;
+	for(int i = 0; i < 4; i++)
+		inventory[i] = 0;
 }
 
 Character::Character(const std::string &type):name(type)
 {
 	std::cout << "Character constructor is called" << std::endl;
+	for(int i = 0; i < 4; i++)
+		inventory[i] = 0;
 }
 
 Character::Character(const Character &other)
 {
-	*this = other;
+	this->name = other.name;
+	for (int i = 0; i < 4; i++)
+		if (this->inventory[i])
+			delete this->inventory[i];
+	for (int i = 0; i < 4; i++)
+	{
+		if (other.inventory[i])
+			this->inventory[i] = other.inventory[i]->clone();
+		else
+			this->inventory[i] = NULL;
+	}
 }
 
 Character &Character::operator =(const Character & other)
 {
-//	std::cout << "[Character] Copy assignment operator called" << std::endl;
-	this->name = other.getName();
+	std::cout << "[Character] Copy assignment operator called" << std::endl;
+	this->name = other.name;
+	for (int i = 0; i < 4; i++)
+		if (this->inventory[i])
+			delete this->inventory[i];
 	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i] != nullptr)
-			delete inventory[i];
-		this->inventory[i] = other.inventory[i]->clone();
+		if (other.inventory[i])
+			this->inventory[i] = other.inventory[i]->clone();
+		else
+			this->inventory[i] = NULL;
 	}
 	return (*this);
 }
 
 Character::~Character()
 {
-//	std::cout << "[Character]" << ": Destructor called" << std::endl;
+	std::cout << "[Character]" << ": Destructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
-		if (inventory[i] != nullptr)
+		if (inventory[i])
 			delete inventory[i];
 	}
 }
@@ -53,12 +72,10 @@ Character::~Character()
 void Character::equip(AMateria *m)
 {
 	int i = 0;
-	while (inventory[i])
+	while (inventory[i] && i < 4)
 		i++;
-	if (i < 4)
+	if (i >= 0 && i <= 3)
 		inventory[i] = m;
-	else
-		delete m;
 }
 
 void Character::unequip(int idx)
@@ -69,8 +86,9 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (inventory[idx] != nullptr)
-		inventory[idx]->use(target);
+	if (idx >= 0 && idx <= 3 && this->inventory[idx])
+		this->inventory[idx]->use(target);
+	std::cout << "!!!!!" << std::endl;
 }
 
 std::string const &Character::getName() const

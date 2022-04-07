@@ -14,7 +14,7 @@
 
 Cure::Cure()
 {
-//	std::cout <<"[Cure]"<< "Default constructor called" << std::endl;
+	std::cout <<"[Cure]"<< "Default constructor called" << std::endl;
 	this->type = "cure";
 }
 

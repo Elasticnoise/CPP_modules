@@ -34,7 +34,7 @@ public:
 	MateriaSource &operator =(const MateriaSource & other);
 	~MateriaSource();
 
-	void learnMateria(AMateria *);
+	void learnMateria(AMateria* materia);
 	AMateria* createMateria(std::string const & type);
 };
 

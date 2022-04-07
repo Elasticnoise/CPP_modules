@@ -36,7 +36,7 @@ private:
 	AMateria* inventory[4];
 public:
 	Character(std::string const & type);
-	Character(const Character &other);
+	Character(Character const & src );
 	Character &operator =(const Character & other);
 	~Character();
 

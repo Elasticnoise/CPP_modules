@@ -30,10 +30,7 @@ Ice &Ice::operator =(const Ice & other)
 	return (*this);
 }
 
-Ice::~Ice()
-{
-//	std::cout << "[Ice]" << ": Destructor called" << std::endl;
-}
+Ice::~Ice() {}
 
 AMateria* Ice::clone() const
 {

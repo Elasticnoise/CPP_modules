@@ -27,11 +27,15 @@ MateriaSource::MateriaSource(const MateriaSource &other)
 MateriaSource &MateriaSource::operator =(const MateriaSource & other)
 {
 //	std::cout << "[MateriaSource] Copy assignment operator called" << std::endl;
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
+		if (this->inventory[i])
+			delete this->inventory[i];
+	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i] != nullptr)
-			delete inventory[i];
-		inventory[i] = other.inventory[i]->clone();
+		if (other.inventory[i])
+			this->inventory[i] = other.inventory[i]->clone();
+		else
+			this->inventory[i] = NULL;
 	}
 	return (*this);
 }
@@ -58,7 +62,12 @@ void MateriaSource::learnMateria(AMateria *materia)
 AMateria* MateriaSource::createMateria(const std::string &type)
 {
 	for (int i = 0; i < 4; ++i)
-		if (inventory[i]->getType() == type)
-			return (inventory[i]->clone());
+	{
+		if (inventory[i])
+		{
+			if (inventory[i]->getType() == type)
+				return (inventory[i]->clone());
+		}
+	}
 	return (nullptr);
 }
