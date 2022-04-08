@@ -15,7 +15,7 @@
 MateriaSource::MateriaSource()
 {
 //	std::cout <<"[MateriaSource]"<< "Default constructor called" << std::endl;
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
 		inventory[i] = nullptr;
 }
 
@@ -43,17 +43,17 @@ MateriaSource &MateriaSource::operator =(const MateriaSource & other)
 MateriaSource::~MateriaSource()
 {
 //	std::cout << "[MateriaSource]" << ": Destructor called" << std::endl;
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
 		delete inventory[i];
 }
 
 void MateriaSource::learnMateria(AMateria *materia)
 {
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i] == nullptr)
+		if (this->inventory[i] == nullptr)
 		{
-			inventory[i] = materia;
+			this->inventory[i] = materia;
 			break ;
 		}
 	}
@@ -61,9 +61,9 @@ void MateriaSource::learnMateria(AMateria *materia)
 
 AMateria* MateriaSource::createMateria(const std::string &type)
 {
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i])
+		if (inventory[i] != nullptr)
 		{
 			if (inventory[i]->getType() == type)
 				return (inventory[i]->clone());

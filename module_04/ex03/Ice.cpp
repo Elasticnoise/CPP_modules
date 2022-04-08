@@ -14,11 +14,11 @@
 
 Ice::Ice()
 {
-//	std::cout <<"[Ice]"<< "Default constructor called" << std::endl;
+	std::cout <<"[Ice]"<< "Default constructor called" << std::endl;
 	this->type = "ice";
 }
 
-Ice::Ice(const Ice &other)
+Ice::Ice(const Ice &other):AMateria(other)
 {
 	*this = other;
 }

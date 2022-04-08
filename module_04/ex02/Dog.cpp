@@ -21,6 +21,8 @@ Dog::Dog()
 
 Dog::Dog(const Dog &other)
 {
+	std::cout << "[Dog] Copy onstructor is called" << std::endl;
+	this->brain = new Brain();
 	*this = other;
 }
 
@@ -28,6 +30,7 @@ Dog	&Dog::operator =(const Dog &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->type = other.type;
+	*this->brain = *other.brain;
 	return (*this);
 }
 

@@ -13,13 +13,15 @@
 #include "Cat.hpp"
 Cat::Cat()
 {
-	std::cout <<"[Cat]"<< "Default constructor called" << std::endl;
+	std::cout <<"[Cat]Default constructor called" << std::endl;
 	this->type = "Cat";
 	this->brain = new Brain();
 }
 
 Cat::Cat(const Cat &other)
 {
+	std::cout << "[Dog]Copy constructor is called" << std::endl;
+	this->brain = new Brain();
 	*this = other;
 }
 
@@ -27,6 +29,7 @@ Cat	&Cat::operator =(const Cat &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->type = other.type;
+	*this->brain = *other.brain;
 	return (*this);
 }
 

@@ -38,5 +38,5 @@ void Animal::makeSound() const {}
 
 std::string Animal::getType() const
 {
-	return NULL;
+	return this->type;
 }

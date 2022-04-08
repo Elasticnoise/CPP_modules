@@ -22,6 +22,7 @@ public:
 	Brain(const Brain &other);
 	Brain & operator =(const Brain &other);
 	virtual ~Brain();
+
 };
 
 #endif

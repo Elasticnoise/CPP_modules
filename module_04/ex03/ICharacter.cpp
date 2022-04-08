@@ -17,14 +17,14 @@ Character::Character()
 	this->name = "";
 	std::cout <<"[Character]"<< "Default constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
-		inventory[i] = 0;
+		inventory[i] = nullptr;
 }
 
 Character::Character(const std::string &type):name(type)
 {
 	std::cout << "Character constructor is called" << std::endl;
 	for(int i = 0; i < 4; i++)
-		inventory[i] = 0;
+		inventory[i] = nullptr;
 }
 
 Character::Character(const Character &other)
@@ -72,10 +72,14 @@ Character::~Character()
 void Character::equip(AMateria *m)
 {
 	int i = 0;
-	while (inventory[i] && i < 4)
+	while ((inventory[i] != nullptr) && i < 4)
 		i++;
 	if (i >= 0 && i <= 3)
+	{
 		inventory[i] = m;
+		std::cout << "equipped" << std::endl;
+//		std::cout << m->getType() << std::endl;
+	}
 }
 
 void Character::unequip(int idx)
@@ -86,9 +90,16 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx >= 0 && idx <= 3 && this->inventory[idx])
-		this->inventory[idx]->use(target);
-	std::cout << "!!!!!" << std::endl;
+//	if (idx >= 0 && idx <= 3 && (this->inventory[idx] != nullptr))
+	(void) target;
+	(void) idx;
+	int i = 0;
+	while(this->inventory[i])
+	{
+		std::cout << this->inventory[i] << std::endl;
+		i++;
+	}
+//	std::cout << "!!!!!" << std::endl;
 }
 
 std::string const &Character::getName() const

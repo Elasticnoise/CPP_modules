@@ -16,12 +16,12 @@
 
 int main()
 {
-//	AAnimal An;
-	AAnimal *An = new Dog();
-	AAnimal *Bn = new Cat();
-
-	An->makeSound();
-	Bn->makeSound();
+	AAnimal An;
+//	AAnimal *An = new Dog();
+//	AAnimal *Bn = new Cat();
+//
+//	An->makeSound();
+//	Bn->makeSound();
 
 	delete An;
 	delete Bn;

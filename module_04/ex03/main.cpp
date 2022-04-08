@@ -23,9 +23,9 @@ int	main()
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	tmp->getType();
+	std::cout << tmp->getType() << std::endl;
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
+//	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
