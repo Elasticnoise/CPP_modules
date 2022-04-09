@@ -21,7 +21,7 @@ Cat::Cat()
 Cat::Cat(const Cat &other):Animal(other)
 {
 	std::cout << "[Cat]Copy constructor called" << std::endl;
-	this->brain = new Brain(*(other.brain));
+	this->brain = new Brain();
 
 	*this = other;
 }
