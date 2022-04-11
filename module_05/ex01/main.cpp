@@ -15,14 +15,24 @@
 
 int main()
 {
-	Bureaucrat bob("bob", 0);
-//	Form	form("form", 4, 10);
+	/* Subject check 1 */
+//	Bureaucrat bob("bob", 151);
+//	std::cout << bob;
+//	Form	form("form", 1, 10);
+//	std::cout << form;
+
+	/* Subject check 2 */
+//	Form	form("form", 1, 10);
+//	Bureaucrat bob("bob", 1);
 //	bob.signForm(form);
 //	std::cout << form;
 
+/* Subject check 3 */
+	Form form("form", 3, 3);
+	Bureaucrat bob("bob", 4);
 //	std::cout << bob;
-//	std::cout << form;
-//	form.bob();
+	form.beSigned(bob);
+	std::cout << form;
 
 	return 0;
 }
