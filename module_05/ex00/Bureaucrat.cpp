@@ -16,13 +16,18 @@ Bureaucrat::Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(const std::string &_name, unsigned int _grade):_name(_name)
 {
-//	this->_name = _name;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	else if (_grade > 150)
-		throw GradeTooLowException();
-	else
+	try
+	{
+		if (_grade < 1)
+			throw GradeTooHighException();
+		if (_grade > 150)
+			throw GradeTooLowException();
 		this->_grade = _grade;
+	}
+	catch (std::exception& ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
@@ -48,16 +53,30 @@ unsigned int Bureaucrat::getGrade() const
 
 void Bureaucrat::downGrade()
 {
-	if (this->_grade == 1)
-		throw GradeTooLowException();
-	this->_grade++;
+	try
+	{
+		if (this->_grade == 150)
+			throw GradeTooLowException();
+		this->_grade++;
+	}
+	catch (std::exception& ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
 }
 
 void Bureaucrat::upGrade()
 {
-	if (this->_grade == 1)
-		throw GradeTooHighException();
-	this->_grade--;
+	try
+	{
+		if (this->_grade == 1)
+			throw GradeTooHighException();
+		this->_grade--;
+	}
+	catch (std::exception& ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat()

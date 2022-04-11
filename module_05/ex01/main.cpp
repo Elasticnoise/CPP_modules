@@ -11,40 +11,18 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-//	Bureaucrat bur("Slava", 1);
-//
-//	std::cout << bur<< std::endl;
-	/* grade is too high */
-//	try
-//	{
-//		Bureaucrat("too_high", 0);
-//	}
-//	catch (const std::exception& ex)
-//	{
-//		throw Bureaucrat::GradeTooHighException();
-//	}
+	Bureaucrat bob("bob", 0);
+//	Form	form("form", 4, 10);
+//	bob.signForm(form);
+//	std::cout << form;
 
-	/* grade is too high */
-//	try
-//	{
-//		Bureaucrat("too_low", 150);
-//	}
-//	catch (const std::exception& ex)
-//	{
-//		throw Bureaucrat::GradeTooLowException();
-//	}
+//	std::cout << bob;
+//	std::cout << form;
+//	form.bob();
 
-	/* valid test */
-//		try
-//	{
-//		Bureaucrat("too_low", 4);
-//	}
-//	catch (const std::exception& ex)
-//	{
-//		throw Bureaucrat::GradeTooLowException();
-//	}
 	return 0;
 }

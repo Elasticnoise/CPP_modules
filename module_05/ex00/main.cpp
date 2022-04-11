@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 18:35:49 by lechalme          #+#    #+#             */
-/*   Updated: 2022/03/29 18:35:50 by lechalme         ###   ########.fr       */
+/*   Created: 2022/04/08 21:25:51 by lechalme          #+#    #+#             */
+/*   Updated: 2022/04/08 21:25:53 by lechalme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FIXED_HPP
-#define FIXED_HPP
+#include "Bureaucrat.hpp"
 
-#include <iostream>
-class Fixed
+int main()
 {
-private:
-	int fixed_point_num;
-	static const int fractional_bits_num = 8;
-public:
-	Fixed();
-	Fixed (const Fixed obj);
-	~Fixed();
-	int	getRawBits() const;
-	void setRawBits(int const raw);
-	Fixed & operator =(const Fixed &other);
-};
+	/* Subject check 1 */
+	class Bureaucrat Bur("Bob_Bur", 16);
+//	Bur.upGrade();
+//	Bur.downGrade();
+//	std::cout << Bur.getGrade() << std::endl;
+//	std::cout << Bur.getName() <<std::endl;
+//	std::cout << Bur;
 
-#endif
+	/* Subject check 2 */
+//	class Bureaucrat Bur2("Bob_Bur2", 150);
+//	std::cout << Bur2;
+//	Bur2.downGrade();
+//	std::cout << Bur2;
+	return 0;
+}
