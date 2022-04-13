@@ -19,8 +19,21 @@
 
 int main()
 {
-//	Intern someRandomIntern;
-//	Form* rrf;
-//	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	Intern	someRandomIntern;
+	AForm*	rrf = NULL;
+
+	try
+	{
+		std::cout << "NoNameForm" << std::endl;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "target");
+		std::cout << *rrf << std::endl << std::endl;
+		delete rrf;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	delete rrf;
 	return 0;
 }
