@@ -39,6 +39,7 @@ AForm *Intern::makeForm(std::string name, std::string target)
 			break;
 		case 2:
 			f =  new PresidentialPardonForm(target);
+			break;
 		default:
 			throw FormIsNotCreatedException();
 	}

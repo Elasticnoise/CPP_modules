@@ -21,12 +21,15 @@ int main()
 {
 	Intern	someRandomIntern;
 	AForm*	rrf = NULL;
+	Bureaucrat bob("bob", 4);
 
 	try
 	{
 		std::cout << "NoNameForm" << std::endl;
-		rrf = someRandomIntern.makeForm("shrubbery creation", "target");
+		rrf = someRandomIntern.makeForm("presidential pardon", "target");
 		std::cout << *rrf << std::endl << std::endl;
+		bob.signForm(*rrf);
+		rrf->execute(bob);
 		delete rrf;
 	}
 	catch(const std::exception& e)
@@ -34,6 +37,5 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
-	delete rrf;
 	return 0;
 }
