@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Convert.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lechalme <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/17 16:54:45 by lechalme          #+#    #+#             */
+/*   Updated: 2022/04/17 16:54:47 by lechalme         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONVERT_HPP
 #define CONVERT_HPP
 #include <iostream>
@@ -10,6 +22,7 @@
 class	Convert
 {
 private:
+	double		_value;
 	std::string _str;
 public:
 	Convert();
@@ -23,6 +36,9 @@ public:
 	float	toFloat() const;
 	double	toDouble() const;
 	void 	converter() const;
+
+	double	getValue() const;
+	std::string	getStr() const;
 
 	class ImpossibleException : public std::exception
 	{
