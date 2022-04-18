@@ -1,9 +1,6 @@
-NAME		=	realtype
-SRCS 		= 	main.cpp \
-				Base.cpp \
-				A.cpp \
-				B.cpp \
-				C.cpp
+NAME		=	iter
+SRCS 		= 	main.cpp
+
 
 OBJS		=	$(patsubst %.cpp, %.o,$(SRCS))
 
