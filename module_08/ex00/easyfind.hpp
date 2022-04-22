@@ -21,11 +21,12 @@ template<typename T>
 int	easyfind(T & array, int num)
 {
 	typename T::iterator	it;
-	it = array.begin()
-	if (mySet.find(num) != mySet.end())
-		return num;
-	else
-		throw "Число отсутствует!\n";
+	it = std::find(array.begin(), array.end(), num);
+	if (it == array.end())
+		throw "Integer isn't find";
+	return *it;
+
 }
+
 #endif
 
