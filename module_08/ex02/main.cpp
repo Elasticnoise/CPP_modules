@@ -10,25 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "MutantStack.hpp"
 int main() {
-	MutantStack<int> mstack;
+
+	/* Subject's example */
+	MutantStack<int>	mstack;
+
 	mstack.push(5);
 	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
+
+	std::cout << "Top of stack: " << mstack.top() << std::endl;
+
 	mstack.pop();
-	std::cout << mstack.size() << std::endl;
+
+	std::cout << "Size of stack: " << mstack.size() << std::endl;
+
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
+
 	mstack.push(0);
+
+	std::cout << "Print stack: " << std::endl;
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
+
 	++it;
 	--it;
-	while (it != ite) {
+	while (it != ite)
+	{
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
-	return 0;
+
+//	MutantStack<int> secondStack;
+//
+//	for (int i = 0; i < 10; i++)
+//		secondStack.push(i);
+//	secondStack.pop();
+//	secondStack.pop();
+//	secondStack.pop();
+//	MutantStack<int>::iterator it = secondStack.begin();
+//	MutantStack<int>::iterator ite = secondStack.end();
+//	while (it != ite)
+//	{
+//		std::cout << *it << std::endl;
+//		++it;
+//	}
+//	return 0;
 }
